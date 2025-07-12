@@ -1,0 +1,30 @@
+{
+  "name": "new-folder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "worker": "node src/workers/worker.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@bull-board/api": "^6.11.0",
+    "@bull-board/express": "^6.11.0",
+    "axios": "^1.10.0",
+    "bull": "^4.16.5",
+    "bullmq": "^5.56.4",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.3",
+    "node-cron": "^4.2.1",
+    "redis": "^5.6.0",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
