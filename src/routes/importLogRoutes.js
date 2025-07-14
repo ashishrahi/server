@@ -11,12 +11,12 @@ router.put('/logs/:id', updateImportLogs);
 
 
 
-router.post('/manual-import', async (req, res) => {
-  const stats = await fetchJobsFromFeeds();
-  res.json({
-    message: 'Import started',
-    stats,
-  });
-});
+// router.post('/manual-import', async (req, res) => {
+//   const stats = await fetchJobsFromFeeds();
+//   res.json({
+//     message: 'Import started',
+//     stats,
+//   });
+// });
 
 export default router;

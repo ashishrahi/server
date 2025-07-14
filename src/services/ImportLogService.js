@@ -7,6 +7,7 @@ export const createImportLog= async(model)=>{
      return{
         success: true,
         message: 'log created successfully',
+        data: newImageLog
      }
         
     } catch (error) {

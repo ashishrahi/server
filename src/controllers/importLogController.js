@@ -18,12 +18,16 @@ export const getImportLogs = async (req, res) => {
   }
 };
 
-export const createImportLogs = async (req, res) => {
+export const createImportLogs = async (req, res,) => {
   try {
     const model = req.body;
     const { success, message, data } = await ImportLogService.createImportLog(
       model
     );
+     const io = req.app.get('io');
+    if (success && io) {
+      io.emit('new-log', data); 
+    }
     res.status(StatusCodes.OK).json({ success, message, data });
   } catch (error) {
     res
