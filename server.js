@@ -1,15 +1,13 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cron from 'node-cron';
 import cors from 'cors';
 import http from 'http';
 import { Server } from 'socket.io';
-
 import importLogRoutes from './src/routes/importLogRoutes.js';
 import { fetchJobsFromFeeds } from './src/services/JobService.js';
 import dbConnect from './src/config/dbConnect.js';
-
+import './src/workers/worker.js';
 dotenv.config();
 
 const app = express();

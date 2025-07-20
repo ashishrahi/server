@@ -1,22 +1,39 @@
 import { StatusCodes } from "http-status-codes";
 import ImportLog from "../models/ImportLog.js";
 import { ImportLogService } from "../services/index.js";
+
 export const getImportLogs = async (req, res) => {
   try {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 50;
+    // Correct parameter names
+    const page = parseInt(req.query.page);
+    const limit = parseInt(req.query.limit);
+
+    // Optional: Validate values
+    if (page < 1 || limit < 1 || limit > 100) {
+      return res.status(400).json({ success: false, message: "Invalid page or limit" });
+    }
+
     const logs = await ImportLog.find()
       .sort({ timestamp: -1 })
       .skip((page - 1) * limit)
-      .limit(limit);
+      .limit(limit); // use limit here
+
     const count = await ImportLog.countDocuments();
-    res.json({ logs, totalPages: Math.ceil(count / limit), currentPage: page });
+
+    res.status(200).json({
+      logs,
+      totalPages: Math.ceil(count / limit),
+      currentPage: page,
+    });
   } catch (error) {
-    res
-      .status(StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({ success: false, message: error.message });
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
+
+
 
 export const createImportLogs = async (req, res,) => {
   try {
