@@ -66,3 +66,7 @@
 2025-07-20T15:48:14.002Z INFO: Worker started and listening to "jobs" queue
 2025-07-20T15:48:20.444Z INFO: MongoDB connected
 2025-07-20T15:48:20.449Z INFO: Worker started and listening to "jobs" queue
+2025-07-20T15:48:24.476Z INFO: MongoDB connected
+2025-07-20T15:48:24.481Z INFO: Worker started and listening to "jobs" queue
+2025-07-20T15:56:24.703Z INFO: MongoDB connected
+2025-07-20T15:56:24.718Z INFO: Worker started and listening to "jobs" queue
